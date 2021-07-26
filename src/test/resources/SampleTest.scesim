@@ -90,7 +90,7 @@
               <name>Description</name>
               <type>OTHER</type>
             </expressionIdentifier>
-            <rawValue class="string">Value is &lt; 100</rawValue>
+            <rawValue class="string">Value is &lt;100</rawValue>
           </FactMappingValue>
           <FactMappingValue>
             <factIdentifier>
@@ -101,7 +101,7 @@
               <name>1|1</name>
               <type>GIVEN</type>
             </expressionIdentifier>
-            <rawValue class="string">[{&quot;id&quot;:&quot;\&quot;1\&quot;&quot;, &quot;value&quot;:&quot;1&quot;},{&quot;id&quot;:&quot;\&quot;1\&quot;&quot;, &quot;value&quot;:&quot;10&quot;},{&quot;id&quot;:&quot;\&quot;1\&quot;&quot;, &quot;value&quot;:&quot;99&quot;}]</rawValue>
+            <rawValue class="string">[{&quot;id&quot;:&quot;1&quot;, &quot;value&quot;:&quot;10&quot;}]</rawValue>
           </FactMappingValue>
           <FactMappingValue>
             <factIdentifier>
