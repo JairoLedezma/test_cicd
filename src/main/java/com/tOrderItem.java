@@ -6,12 +6,33 @@ package com;
 
 public class tOrderItem implements java.io.Serializable {
 
-    static final long serialVersionUID = 1L;
+	static final long serialVersionUID = 1L;
 
-    public tOrderItem() {
-    }
+	private java.lang.String id;
+	private java.lang.Integer value;
 
+	public tOrderItem() {
+	}
 
+	public java.lang.String getId() {
+		return this.id;
+	}
 
+	public void setId(java.lang.String id) {
+		this.id = id;
+	}
+
+	public java.lang.Integer getValue() {
+		return this.value;
+	}
+
+	public void setValue(java.lang.Integer value) {
+		this.value = value;
+	}
+
+	public tOrderItem(java.lang.String id, java.lang.Integer value) {
+		this.id = id;
+		this.value = value;
+	}
 
 }
