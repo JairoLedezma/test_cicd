@@ -101,7 +101,7 @@
               <name>1|1</name>
               <type>GIVEN</type>
             </expressionIdentifier>
-            <rawValue class="string">[{&quot;id&quot;:&quot;1&quot;, &quot;value&quot;:&quot;10&quot;}]</rawValue>
+            <rawValue class="string">[{&quot;id&quot;:&quot;1&quot;, &quot;value&quot;:&quot;10&quot;},{&quot;id&quot;:&quot;1&quot;, &quot;value&quot;:&quot;99&quot;}]</rawValue>
           </FactMappingValue>
           <FactMappingValue>
             <factIdentifier>
@@ -112,7 +112,7 @@
               <name>1|2</name>
               <type>EXPECT</type>
             </expressionIdentifier>
-            <rawValue class="string">&quot;&lt;100&quot;</rawValue>
+            <rawValue class="string">[&quot;&lt;100&quot;, &quot;&lt;100&quot;]</rawValue>
           </FactMappingValue>
           <FactMappingValue>
             <factIdentifier>
