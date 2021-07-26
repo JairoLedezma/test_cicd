@@ -8,18 +8,11 @@ public class tOrderItem implements java.io.Serializable {
 
 	static final long serialVersionUID = 1L;
 
-	private java.lang.String SKU;
 	private java.lang.String description;
 
+	private java.lang.String SKU;
+
 	public tOrderItem() {
-	}
-
-	public java.lang.String getSKU() {
-		return this.SKU;
-	}
-
-	public void setSKU(java.lang.String SKU) {
-		this.SKU = SKU;
 	}
 
 	public java.lang.String getDescription() {
@@ -30,9 +23,17 @@ public class tOrderItem implements java.io.Serializable {
 		this.description = description;
 	}
 
-	public tOrderItem(java.lang.String SKU, java.lang.String description) {
+	public java.lang.String getSKU() {
+		return this.SKU;
+	}
+
+	public void setSKU(java.lang.String SKU) {
 		this.SKU = SKU;
+	}
+
+	public tOrderItem(java.lang.String description, java.lang.String SKU) {
 		this.description = description;
+		this.SKU = SKU;
 	}
 
 }
