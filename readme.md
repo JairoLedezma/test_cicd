@@ -14,7 +14,7 @@
 - Execute the following GET Request under the DMN models section to retrieve the **model-namespace** and **model-id** by passing in the container Id, set the Response content type to application/json
 ![](https://github.com/RutvikPanchal/sampleDMN/blob/master/docs/GET%20Info.png?raw=true)<br /><br />
 - Execute the following POST Request to check for the validation by passing in the payload configured as shown in **Payload** in the body parameter, set the Parameter content type and Response content type to application/json
-![](https://github.com/RutvikPanchal/sampleDMN/blob/master/docs/POST%20Info.png?raw=true)<br /><br />
+![](https://github.com/RutvikPanchal/sampleDMN/blob/master/docs/POST%20Info.png?raw=true)
 ###Payload:
 ```
 {
