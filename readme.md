@@ -10,20 +10,22 @@
 `git clone`
 ## Payload Configuration
 - Execute the following GET Request from Swagger API under the Kie Server and Kie Containers section when using the Kie development server to retrieve the **container Id**.
-
+![](https://github.com/RutvikPanchal/sampleDMN/blob/master/docs/GET%20Containers.png?raw=true)
 - Execute the following GET Request under the DMN models section to retrieve the **model-namespace** and **model-id** by passing in the container Id, set the Response content type to application/json
-
+![](https://github.com/RutvikPanchal/sampleDMN/blob/master/docs/GET%20Info.png?raw=true)
 - Execute the following POST Request to check for the validation by passing in the payload configured as shown in **code-section-1** in the body parameter, set the Parameter content type and Response content type to application/json
-**code section-1:**
+![](https://github.com/RutvikPanchal/sampleDMN/blob/master/docs/POST%20Info.png?raw=true)
+ **code section-1:**
 ```
 {
-	"model-namspace": model-namespace,
-	"model-name": model-name,
-	"dmn-context":
-		"Input": [
-			{"id": id, "value": value},
-			{"id": id, "value": value},
-			...
-		]
+  "model-namspace": model-namespace,
+  "model-name": model-name,
+  "dmn-context":{
+    "Input": [
+        {"id": id, "value": value},
+        {"id": id, "value": value},
+        ...
+      ]
+    }
 }
 ```
