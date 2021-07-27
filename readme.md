@@ -1,6 +1,6 @@
 # Sample DMN Project
 
-- This repo containes the source code for a sample DMN Project which implements the iteration over list of objects on which business logic validation is performed.
+- This repository contains the source code for a sample DMN Project which implements the iteration over list of objects on which business logic validation is performed.
 ## Prerequisites
 - JBoass EAP v7.3.0
 - Red Hat Decision Manager v7.11.0
