@@ -12,12 +12,16 @@
  ### Step 2. Setting up the OpenShift Cluster
  - Login to your OpenShift Cluster Web Console or Terminal and create a new project
  - Create the following 2 secrets in the project namespace<br /><br/>
-	credentials
-		KIE_ADMIN_USER = kie-admin
-		KIE_ADMIN_PWD = kie-redhat1!
+```
+credentials
+	KIE_ADMIN_USER = kie-admin
+	KIE_ADMIN_PWD = kie-redhat1!
+```
 <br />
-	kie-server-https
-		keystore.jks
+```
+kie-server-https
+	keystore.jks
+```
 <br />
  - credentials is a simple literal based secret.
  - key-server-https secret is created from the file keystore.jks which is a SSL encryption key generated using the keytool. [Click here](https://access.redhat.com/documentation/en-us/jboss_enterprise_application_platform/6.1/html-single/security_guide/index#Generate_a_SSL_Encryption_Key_and_Certificate) to learn more<br /><br />
