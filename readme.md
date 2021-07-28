@@ -21,10 +21,11 @@ credentials
 ```
 kie-server-https
 	keystore.jks
+	
 ```
  - credentials is a simple literals based secret containing 2 key value pairs. Here username and password can be any valid text secret. Make sure to keep a note as it will be used to login to the kie-server.
  - key-server-https secret is created from the file keystore.jks which is a SSL encryption key generated using the keytool. [Click here](https://access.redhat.com/documentation/en-us/jboss_enterprise_application_platform/6.1/html-single/security_guide/index#Generate_a_SSL_Encryption_Key_and_Certificate) to learn more<br /><br />
- - Open the openshift project/namespace(only accessible by cluster-admin) and go to `Builds&nbsp;&rarr;&nbsp;Images` section.
+ - Open the openshift project/namespace(only accessible by cluster-admin) and go to `Builds`&nbsp;&rarr;&nbsp;`Images` section.
  - Using the Import YAML utility under Add to Project usually found at top-right corder, paste in the YAML script from `rhdm711-image-streams.yaml` file in the pop-up. optionally the `rhdm711-image-streams.yaml` file can be uploaded as well. `rhdm711-image-streams.yaml` file can be found inside the `rhdm-7.11.0-openshift-templates.zip` file. Now click create.
  - This step will create 3 image streams inside the openshift namespace which is used to pull the base images required for running the S2I build.
  
