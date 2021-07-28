@@ -22,14 +22,13 @@ credentials
 kie-server-https
 	keystore.jks
 ```
-<br />
  - credentials is a simple literal based secret.
  - key-server-https secret is created from the file keystore.jks which is a SSL encryption key generated using the keytool. [Click here](https://access.redhat.com/documentation/en-us/jboss_enterprise_application_platform/6.1/html-single/security_guide/index#Generate_a_SSL_Encryption_Key_and_Certificate) to learn more<br /><br />
  - Open the openshift project/namespace(only accessible by cluster-admin) and go to Builds&nbsp;&rarr;&nbsp;Images section.
  - Using the Import YAML utility under Add to Project usually found at top-right corder, paste in the YAML script from rhdm711-image-streams.yaml file in the pop-up. optionally the rhdm711-image-streams.yaml file can be uploaded as well. rhdm711-image-streams.yaml file can be found inside the rhdm-7.11.0-openshift-templates.zip file. Now click create.
  - This step will create 3 image streams inside the openshift namespace which is used to pull the base image required for running the S2I build.
  
- ###Step 3. Configuring and Adding the Project
+ ### Step 3. Configuring and Adding the Project
  - Here, the Immutable Production Ready S2I Configured Kie-server is being deployed on the OpenShift cluster which will run as a containerized api and can be consumed by other microservices or by the end consumer.
  - In the overview section, use the Import YAML utility to add the project template and configure it. upload or paste in the YAML script from the rhdm711-prod-immutable-kieserver.yaml file which can be found in the rhdm-7.11.0-openshift-templates.zip&nbsp;&rarr;&nbsp;templates folder.
  - After clicking on create, make sure Process the template is selected in the propmt and then click continue.
