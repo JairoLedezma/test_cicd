@@ -35,7 +35,7 @@ kie-server-https
  - After clicking on create, make sure Process the template is selected in the propmt and then click continue.<br /><br />
 ![](https://github.com/rutvik-nvs/sample-dmn-iteration/blob/master/docs/Import.png)<br /><br />
  - Optionally the rhdm711-prod-immutable-kieserver.yaml can be modified following the below steps and resource can be created using the `oc create -f [yamlFile]` command.
- - Set the following parameters on the next screen:
+ - Set the following parameters(other parameters are optinal to configure, [Click here](https://access.redhat.com/documentation/en-us/red_hat_decision_manager/7.11/html/deploying_red_hat_decision_manager_on_red_hat_openshift_container_platform/environment-immutable-con_openshift-templates) to learn more) on the next screen:
  	- `Application Name (APPLICATION_NAME)` The name of the OpenShift application. It is used in the default URL for Decision Server. OpenShift uses the application name to create a separate set of deployment configurations, services, routes, labels, and artifacts.
  	- `Credentials secret (CREDENTIALS_SECRET)` The name of the secret containing the administrative user credentials. `credentials` in this case.
  	- `ImageStream Namespace (IMAGE_STREAM_NAMESPACE)` The namespace where the image streams are available. `openshift` in this case. Make sure the kie-server version is v7.11.0.
@@ -52,11 +52,12 @@ kie-server-https
  - Click create anyway on the pop-up that shows up
 
 ## Payload Configuration
-- Execute the following GET Request from Swagger API under the Kie Server and Kie Containers section when using the Kie development server to retrieve the **container Id**.<br />GET "http://localhost:8080/kie-server/services/rest/server/containers"<br /><br />
+- After the kie server project is deployed and configured on the OpenShift cluster, services and routes are created which exposes the kie-server REST API.Examples are shown below as how to access various REST Enpoints.
+- Execute the following GET Request from Swagger API under the Kie Server and Kie Containers section when using the Kie development server to retrieve the **container Id**.<br />GET http://{api-url}/services/rest/server/containers<br /><br />
 ![](https://github.com/RutvikPanchal/sampleDMN/blob/master/docs/GET%20Containers.png?raw=true)<br /><br />
-- Execute the following GET Request under the DMN models section to retrieve the **model-namespace** and **model-id** by passing in the container Id, set the Response content type to application/json.<br />GET "http://localhost:8080/kie-server/services/rest/server/containers/IterationDemo_1.0.0-SNAPSHOT/dmn"<br /><br />
+- Execute the following GET Request under the DMN models section to retrieve the **model-namespace** and **model-id** by passing in the container Id, set the Response content type to application/json.<br />GET http://{api-url}/services/rest/server/containers/IterationDemo_1.0.0-SNAPSHOT/dmn<br /><br />
 ![](https://github.com/RutvikPanchal/sampleDMN/blob/master/docs/GET%20Info.png?raw=true)<br /><br />
-- Execute the following POST Request to check for the validation by passing in the payload configured as shown in **Payload** in the body parameter, set the Parameter content type and Response content type to application/json.<br />POST "http://localhost:8080/kie-server/services/rest/server/containers/IterationDemo_1.0.0-SNAPSHOT/dmn"<br /><br />
+- Execute the following POST Request to check for the validation by passing in the payload configured as shown in **Payload** in the body parameter, set the Parameter content type and Response content type to application/json.<br />POST http://{api-url}/services/rest/server/containers/IterationDemo_1.0.0-SNAPSHOT/dmn<br /><br />
 ![](https://github.com/RutvikPanchal/sampleDMN/blob/master/docs/POST%20Info.png?raw=true)<br /><br />
 ### Payload - Configurationn:
 ```
