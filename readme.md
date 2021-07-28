@@ -47,13 +47,13 @@ kie-server-https
  - Set CPU limit to at least 2 to make sure at least 1 pod is active.
 
 ## Payload Configuration
-- Execute the following GET Request from Swagger API under the Kie Server and Kie Containers section when using the Kie development server to retrieve the **container Id**.<br /><br />
+- Execute the following GET Request from Swagger API under the Kie Server and Kie Containers section when using the Kie development server to retrieve the **container Id**. GET "http://localhost:8080/kie-server/services/rest/server/containers"<br /><br />
 ![](https://github.com/RutvikPanchal/sampleDMN/blob/master/docs/GET%20Containers.png?raw=true)<br /><br />
-- Execute the following GET Request under the DMN models section to retrieve the **model-namespace** and **model-id** by passing in the container Id, set the Response content type to application/json<br /><br />
+- Execute the following GET Request under the DMN models section to retrieve the **model-namespace** and **model-id** by passing in the container Id, set the Response content type to application/json. GET "http://localhost:8080/kie-server/services/rest/server/containers/IterationDemo_1.0.0-SNAPSHOT/dmn"<br /><br />
 ![](https://github.com/RutvikPanchal/sampleDMN/blob/master/docs/GET%20Info.png?raw=true)<br /><br />
-- Execute the following POST Request to check for the validation by passing in the payload configured as shown in **Payload** in the body parameter, set the Parameter content type and Response content type to application/json<br /><br />
+- Execute the following POST Request to check for the validation by passing in the payload configured as shown in **Payload** in the body parameter, set the Parameter content type and Response content type to application/json. POST "http://localhost:8080/kie-server/services/rest/server/containers/IterationDemo_1.0.0-SNAPSHOT/dmn"<br /><br />
 ![](https://github.com/RutvikPanchal/sampleDMN/blob/master/docs/POST%20Info.png?raw=true)<br /><br />
-### Payload:
+### Payload-Config:
 ```
 {
   "model-namspace": model-namespace,
@@ -65,5 +65,70 @@ kie-server-https
         ...
       ]
     }
+}
+```
+### Payload-Example:
+```
+container Id: IterationDemo_1.0.0-SNAPSHOT
+{
+  "model-namespace": "https://kiegroup.org/dmn/_5388429C-0B33-4FA1-95DD-FA7A69AF31E6",
+  "model-name": "SampleDMN",
+  "dmn-context":{
+    "Input": [
+        {"id": "1", "value": 1},
+        {"id": "2", "value": 100},
+        {"id": "2", "value": 100}
+      ]
+    }
+}
+```
+### Payload-Expected Reponse:
+```
+{
+  "type": "SUCCESS",
+  "msg": "OK from container 'IterationDemo_1.0.0-SNAPSHOT'",
+  "result": {
+    "dmn-evaluation-result": {
+      "messages": [],
+      "model-namespace": "https://kiegroup.org/dmn/_5388429C-0B33-4FA1-95DD-FA7A69AF31E6",
+      "model-name": "SampleDMN",
+      "decision-name": [],
+      "dmn-context": {
+        "Input": [
+          {
+            "id": "1",
+            "value": 1
+          },
+          {
+            "id": "2",
+            "value": 100
+          },
+          {
+            "id": "2",
+            "value": 100
+          }
+        ],
+        "BusinessKnowledgeModel": "function BusinessKnowledgeModel( inputParam )",
+        "Decision": [
+          "<100",
+          ">=100",
+          ">=100"
+        ]
+      },
+      "decision-results": {
+        "_F6344A84-9E0E-4C4F-AC9E-1172AD846A36": {
+          "messages": [],
+          "decision-id": "_F6344A84-9E0E-4C4F-AC9E-1172AD846A36",
+          "decision-name": "Decision",
+          "result": [
+            "<100",
+            ">=100",
+            ">=100"
+          ],
+          "status": "SUCCEEDED"
+        }
+      }
+    }
+  }
 }
 ```
