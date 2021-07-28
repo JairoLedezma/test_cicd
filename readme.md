@@ -17,7 +17,7 @@ credentials
 	KIE_ADMIN_USER = kie-admin
 	KIE_ADMIN_PWD = kie-redhat1!
 ```
-<br />
+
 ```
 kie-server-https
 	keystore.jks
