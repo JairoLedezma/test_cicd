@@ -4,12 +4,12 @@
 ## Prerequisites
 - OpenShift v3.11 Cluster Web Console access with cluster-admin rights<br /><br />
 ## Installation
-###Step 1. Download required files
- - Open this [link](https://access.redhat.com/jbossnetwork/restricted/listSoftware.html?downloadType=distributions&product=rhdm&version=7.11.0) which provides all the required download links for files
+### Step 1. Download required files
+ - Open this [link](https://access.redhat.com/jbossnetwork/restricted/listSoftware.html?downloadType=distributions&product=rhdm&version=7.11.0) in new tab which provides all the required download links for files
  - Download the Red Hat Decision Manager 7.11.0 OpenShift Templates .zip (rhdm-7.11.0-openshift-templates.zip) file
  - Unzip the downloaded zip file to a folder
 
- ###Step 2. Setting up the OpenShift Cluster
+ ### Step 2. Setting up the OpenShift Cluster
  - Login to your OpenShift Cluster Web Console or Terminal and create a new project
  - Create the following 2 secrets in the project namespace<br /><br/>
  		credentials
