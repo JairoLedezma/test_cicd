@@ -29,10 +29,10 @@ kie-server-https
  - Using the Import YAML utility under Add to Project usually found at top-right corder, paste in the YAML script from `rhdm711-image-streams.yaml` file in the pop-up. optionally the `rhdm711-image-streams.yaml` file can be uploaded as well. `rhdm711-image-streams.yaml` file can be found inside the `rhdm-7.11.0-openshift-templates.zip` file. Now click create.
  - This step will create 3 image streams inside the openshift namespace which is used to pull the base images required for running the S2I build.
  
- ### Step 3. Configuring and Adding the Project
+ ### Step 3. Adding and Configuring the Project
  - Here, the Immutable Production Ready S2I Configured Kie-server is being deployed on the OpenShift cluster which will run as a containerized api and can be consumed by other microservices or by the end consumer.
  - In the overview section, use the Import YAML utility to add the project template and configure it. upload or paste in the YAML script from the `rhdm711-prod-immutable-kieserver.yaml` file which can be found in the r`hdm-7.11.0-openshift-templates.zip`&nbsp;&rarr;&nbsp;`templates` folder.
- - After clicking on create, make sure Process the template is selected in the propmt and then click continue.<br />
+ - After clicking on create, make sure Process the template is selected in the propmt and then click continue.<br /><br />
 ![](https://github.com/rutvik-nvs/sample-dmn-iteration/blob/master/docs/Import.png)<br /><br />
  - Optionally the rhdm711-prod-immutable-kieserver.yaml can be modified following the below steps and resource can be created using the `oc create -f [yamlFile]` command.
  - Set the following parameters on the next screen:
@@ -41,12 +41,12 @@ kie-server-https
  	- `ImageStream Namespace (IMAGE_STREAM_NAMESPACE)` The namespace where the image streams are available. `openshift` in this case. Make sure the kie-server version is v7.11.0.
  	- `KIE Server Keystore Secret Name (KIE_SERVER_HTTPS_SECRET)` The name of the secret for KIE Server containing the SSL Key. `kie-server-https` in this case.
  	- `KIE Server Certificate Name (KIE_SERVER_HTTPS_NAME)` The name of the certificate in the keystore.
- 	- `KIE Server Keystore Password (KIE_SERVER_HTTPS_PASSWORD)` The password for the keystore.
+ 	- `KIE Server Keystore Password (KIE_SERVER_HTTPS_PASSWORD)` The password for the keystore.<br /><br />
  - KIE Server Container Deployment (KIE_SERVER_CONTAINER_DEPLOYMENT): The identifying information of the decision service (KJAR file) that the deployment must pull from the local or external repository after building your source. The format is `containerId=groupId:artifactId:version` or, if you want to specify an alias name for the container, `containerId(aliasId)=groupId:artifactId:version` You can provide two or more KJAR files using the | separator
  	- `IterationDemo_1.0.0-SNAPSHOT:com.myspace:IterationDemo:1.0.0-SNAPSHOT` in this case.<br /><br />
 ![](https://github.com/rutvik-nvs/sample-dmn-iteration/blob/master/docs/Config.png)
  	- The project specific information can be obtained by running a GET request at `http://localhost:8080/kie-server/services/rest/server/containers` &rarr;&nbsp;`project` object in a local development environment.
- 	- Git Repository URL (SOURCE_REPOSITORY_URL): The URL for the Git repository that contains the source code of the service.<br />`https://github.com/rutvik-nvs/sample-dmn-iteration.git in this case.`
+ 	- Git Repository URL (SOURCE_REPOSITORY_URL): The URL for the Git repository that contains the source code of the service.<br />`https://github.com/rutvik-nvs/sample-dmn-iteration.git in this case.`<br /><br />
  - Set CPU limit to at least 2 to make sure at least 1 pod is active.<br /><br />
 ![](https://github.com/rutvik-nvs/sample-dmn-iteration/blob/master/docs/Confirm.png)
  - Click create anyway on the pop-up that shows up
@@ -58,7 +58,7 @@ kie-server-https
 ![](https://github.com/RutvikPanchal/sampleDMN/blob/master/docs/GET%20Info.png?raw=true)<br /><br />
 - Execute the following POST Request to check for the validation by passing in the payload configured as shown in **Payload** in the body parameter, set the Parameter content type and Response content type to application/json.<br />POST "http://localhost:8080/kie-server/services/rest/server/containers/IterationDemo_1.0.0-SNAPSHOT/dmn"<br /><br />
 ![](https://github.com/RutvikPanchal/sampleDMN/blob/master/docs/POST%20Info.png?raw=true)<br /><br />
-### Payload-Config:
+### Payload - Configurationn:
 ```
 {
   "model-namspace": model-namespace,
@@ -72,9 +72,10 @@ kie-server-https
     }
 }
 ```
-### Payload-Example:
+### Payload - Example:
+`container Id: IterationDemo_1.0.0-SNAPSHOT`
+<br />
 ```
-container Id: IterationDemo_1.0.0-SNAPSHOT
 {
   "model-namespace": "https://kiegroup.org/dmn/_5388429C-0B33-4FA1-95DD-FA7A69AF31E6",
   "model-name": "SampleDMN",
@@ -87,7 +88,7 @@ container Id: IterationDemo_1.0.0-SNAPSHOT
     }
 }
 ```
-### Payload-Expected Reponse:
+### Payload - Expected Reponse:
 ```
 {
   "type": "SUCCESS",
