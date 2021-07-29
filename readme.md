@@ -43,7 +43,7 @@ kie-server-https
  	- `KIE Server Certificate Name (KIE_SERVER_HTTPS_NAME)` The name of the certificate in the keystore.
  	- `KIE Server Keystore Password (KIE_SERVER_HTTPS_PASSWORD)` The password for the keystore.<br /><br />
  - KIE Server Container Deployment (KIE_SERVER_CONTAINER_DEPLOYMENT): The identifying information of the decision service (KJAR file) that the deployment must pull from the local or external repository after building your source. The format is `containerId=groupId:artifactId:version` or, if you want to specify an alias name for the container, `containerId(aliasId)=groupId:artifactId:version` You can provide two or more KJAR files using the | separator
- 	- `IterationDemo_1.0.0-SNAPSHOT:com.myspace:IterationDemo:1.0.0-SNAPSHOT` in this case.<br /><br />
+ 	- `IterationDemo_1.0.0-SNAPSHOT=com.myspace:IterationDemo:1.0.0-SNAPSHOT` in this case.<br /><br />
 ![](https://github.com/rutvik-nvs/sample-dmn-iteration/blob/master/docs/Config.png)
  	- The project specific information can be obtained by running a GET request at `http://localhost:8080/kie-server/services/rest/server/containers` &rarr;&nbsp;`project` object in a local development environment.
  	- Git Repository URL (SOURCE_REPOSITORY_URL): The URL for the Git repository that contains the source code of the service.<br />`https://github.com/rutvik-nvs/sample-dmn-iteration.git in this case.`<br /><br />
