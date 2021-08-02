@@ -62,6 +62,7 @@ kie-server-https
 
 ## Payload Configuration
 - After the kie server project is deployed and configured on the OpenShift cluster, services and routes are created which exposes the kie-server REST API.Examples are shown below as how to access various REST Enpoints.
+- Swagger UI can be accessed using the following URL<br />`GET http://{api-url}/docs`<br /><br />
 - Execute the following GET Request under the Kie Server and Kie Containers section to retrieve the **container Id**.<br />`GET http://{api-url}/services/rest/server/containers`<br /><br />
 ![](https://github.com/RutvikPanchal/sampleDMN/blob/master/docs/GET%20Containers.png?raw=true)<br /><br />
 - Execute the following GET Request under the DMN models section to retrieve the **model-namespace** and **model-id** by passing in the container Id, set the Response content type to application/json.<br />`GET http://{api-url}/services/rest/server/containers/IterationDemo_1.0.0-SNAPSHOT/dmn`<br /><br />
