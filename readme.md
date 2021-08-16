@@ -171,7 +171,7 @@ The business validation results are in the last `decision-results` object. `resu
 
  - Run the following command to start the Jenkins Application
 		java -jar jenkins.war
-<br />
+		
 - **Step 3: Setting up Jenkins**
  - Go to [localhost:8080](http://localhost:8080) to see the homepage of Jenkins, enter the admin password at which point the Jenkins configuration will start. It's a simple one-time admin configuration. Select install suggested plug-ins to get started quickly.
 
