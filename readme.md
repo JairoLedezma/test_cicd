@@ -150,3 +150,104 @@ kie-server-https
 }
 ```
 The business validation results are in the last `decision-results` object. `result` object contains the output of business logic validation performed over a list of input.
+
+
+
+# Openshift CI/CD Pipeline
+###Prerequisites
+- JDK 11
+
+### Setup
+- **Step 1: Installing Jenkins on your local machine**
+ - The latest version of Jenkins can be found [here](https://www.jenkins.io/). Download the Generic Java package (.war) file. Make sure java version 8 or higher is installed. Java version can be checked by using the following command on a terminal on the local machine:
+ 
+		java --version
+   If you do not have JDK installed, the following link can be used
+   <b>JDK 11</b>: [link](https://www.oracle.com/java/technologies/javase-downloads.html#JDK11)
+- **Step 2: Starting the Jenkins Automation tool**
+ - Run the following command to cd into the Downloads folder (or where your jenkins.war file is):
+
+		cd ~/Downloads
+
+ - Run the following command to start the Jenkins Application
+		java -jar jenkins.war
+<br />
+- **Step 3: Setting up Jenkins**
+ - Go to [localhost:8080](http://localhost:8080) to see the homepage of Jenkins, enter the admin password at which point the Jenkins configuration will start. It's a simple one-time admin configuration. Select install suggested plug-ins to get started quickly.
+
+- **Step 4: Installing plugins**
+ - Plugins can be installed via **Dashboard**&nbsp;&rarr;&nbsp;**Manage Jenkins**&nbsp;&rarr;&nbsp;**Manage Plugins**
+ - Click on "Available" tab and search the following plug-ins
+ - To work with OpenShift, following plug-ins are required:
+   - OpenShift Client
+   - OpenShift Login
+   - OpenShift Sync
+
+ - Artifactory Plug-ins:
+   - Artfactory
+
+ - To add the functionality of having multiple users with roles and permissions, install:
+   - Role-based Authorization Strategy
+
+   Select the above plug-ins and hit **Install without Restart** button.
+- **Step 5 Installing and Setting up JFrog Artifactory Server:**
+
+ - Download the OSS (Open Source Solution) version of Artifactory from [here](https://releases.jfrog.io/artifactory/bintray-artifactory/org/artifactory/oss/jfrog-artifactory-oss/[RELEASE]/jfrog-artifactory-oss-[RELEASE]-darwin.tar.gz)
+ - Unzip the tar file by double clicking on the downloaded tar.gz file or using the following command:
+`tar -xvf [zip fileName]`
+ - After the file is unzipped, open up a terminal and cd into
+`artifactory-oss/app/bin/`
+  - If the file is unzipped into the downloads folder, use the following command to cd into the folder:
+`cd ~/Downloads/artifactory-oss-7.21.12/app/bin/`
+ - Once you are in the bin folder, run the following command to start the Artifactory server
+`./artifactory.sh start`
+ - If you get a malware prompt:
+   - Open settings
+   - Select security & privacy settings
+   - In the general tab, click the lock near the bottom left
+   - Note that the “allowed apps” list will update as you run the ./artifactory.sh start command
+   - While the program is running, you will be prompted to move to trash, or close. Click close then look at the “allowed apps” list in your settings.  A new entry will appear each time you hit close.  Click “always allow” then restart the ./artifactory.sh start command.  Repeat this process until the installation is complete.
+
+ - It should start the artifactory server on the following URL : [http://localhost:8082](http://localhost:8082). Wait for artifactory to start and be ready to serve
+
+	```
+Default login credentials:
+		Username: admin
+		Password: password
+```
+
+- **Step 6 Setting up Artifactory server:**
+ - Step 1: Set up the admin password (Optional, you can skip if you want to use the default password). Select any easy password that you can remember, for example *Admin123!*
+ - Step 2: Set Base URL
+   - Skip
+ - Step 3: Configure Proxy Server
+   - Skip
+ - Step 4: Create a Repository/ Repositories (if it shows up)
+   - Skip
+
+- **Step 7 Creating Maven Repositories on JFrog Artifactory Server**
+ - Go to Administration section(Gear icon in the left navigation pane, on the top)
+ - Click on Repositories&nbsp;&rarr;&nbsp;Repositories&nbsp;&rarr;&nbsp;Local (Local tab in the main area)<br />
+ - Click Add Repositories from top right corner,
+   - Select Local Repository
+   - Select Maven
+   - Enter Repository key as : libs-release-local
+   - Click Save & Finish in the bottom right corner
+
+ - Click Add Repositories from top right corner,
+   - Select Local Repository
+   - Select Maven
+   - Enter Repository key as : libs-snapshot-local
+   - Click Save & Finish in the bottom right corner
+
+   **NOTE: Use these credentials when configuring JFrog server in Jenkins**:
+
+   Go to **Administration**&nbsp;&rarr;&nbsp;**Identity and Access**&nbsp;&rarr;&nbsp;**Users**
+  - Click on “New User” in the top right corner
+   - Username: { username } (example: deployer)
+   - Email: { email } (example: deployer@artifactory.com)
+   - Roles : Administrator Platform - Checked
+   - Password: { password } (example: Password123!)
+   - Click Save in the bottom right corner
+
+- **Step 8 Configure Jenkins Global Tool Configuration**
