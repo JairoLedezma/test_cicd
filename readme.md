@@ -154,7 +154,7 @@ The business validation results are in the last `decision-results` object. `resu
 
 
 # Openshift CI/CD Pipeline
-###Prerequisites
+### Prerequisites
 - JDK 11
 
 ### Setup
@@ -210,10 +210,10 @@ The business validation results are in the last `decision-results` object. `resu
 
  - It should start the artifactory server on the following URL : [http://localhost:8082](http://localhost:8082). Wait for artifactory to start and be ready to serve
 
-	```
+```
 Default login credentials:
-		Username: admin
-		Password: password
+	Username: admin
+	Password: password
 ```
 
 - **Step 6 Setting up Artifactory server:**
