@@ -251,66 +251,66 @@ Default login credentials:
    - Click Save in the bottom right corner
 
 - **Step 8 Configure Jenkins Global Tool Configuration**
- - This step is to configure tools such as java, maven and openshift client (oc) to be used by pipelines. Tools name given under these settings will be called under the pipeline tool section.
+  - This step is to configure tools such as java, maven and openshift client (oc) to be used by pipelines. Tools name given under these settings will be called under the pipeline tool section.
 
- - Go to Manage Jenkins&nbsp;&rarr;&nbsp;Global Tool Configuration
+  - Go to Manage Jenkins&nbsp;&rarr;&nbsp;Global Tool Configuration
 
-   - OpenShift Client Tools
-     - Click on "Add OpenShift Client Tools"
-     - Name : oc
-     - Install automatically : checked
-     - Click on "Add OpenShift Client Tools
-     - Choose "Extract *.zip/*.tar.gz"
-     - Label : Leave empty
-     - Download URL for binary archive : https://mirror.openshift.com/pub/openshift-v4/clients/oc/latest/macosx/oc.tar.gz
+    - OpenShift Client Tools
+      - Click on "Add OpenShift Client Tools"
+      - Name : oc
+      - Install automatically : checked
+      - Click on "Add OpenShift Client Tools
+      - Choose "Extract *.zip/*.tar.gz"
+      - Label : Leave empty
+      - Download URL for binary archive : https://mirror.openshift.com/pub/openshift-v4/clients/oc/latest/macosx/oc.tar.gz
     ** IMPORTANT: Use oc cli whose version matches the openshift cluster**
-     - Subdirectory of extracted archive : Leave empty
+      - Subdirectory of extracted archive : Leave empty
 
 	  Click **Apply**
 
-    - JDK Installation
-     - Click on "Add JDK"
-     - Name : jdk11
-     - Install Automatically : uncheck
-     - JAVA_HOME :
+     - JDK Installation
+      - Click on "Add JDK"
+      - Name : jdk11
+      - Install Automatically : uncheck
+      - JAVA_HOME :
       Use command `echo $JAVA_HOME` which will print out the required path
 	  /Library/Java/JavaVirtualMachines/jdk-11.0.12.jdk/Contents/Home/
 
 	  Click **Apply**
 
-   - Maven Installation
-     - Click on "Add Maven"
-     - Name : maven-3.6.3
-     - Install automatically : checked
-     - Install from Apache Version : 3.6.3
+    - Maven Installation
+      - Click on "Add Maven"
+      - Name : maven-3.6.3
+      - Install automatically : checked
+      - Install from Apache Version : 3.6.3
 
      Click **Apply & Save**
 
 - **Step 9 : Jenkins Configurations : Configure OpenShift Cluster Details**
- - Go to Manage Jenkins -> Configure System
+   - Go to Manage Jenkins -> Configure System
 
- - OpenShift Client Plugin
-     - Cluster Configurations : Click on "Add OpenShift Cluster"
-     - Cluster Name : openshift-cluster
-     - API Server URL : *yourOcpClusterUrl*
-     - Disable TLS Verify : checked
-     - Credentials : Click on "Add"
-     - Kind : "OpenShift Token for OpenShift Client Plugin"
-     - ID : {unique Id}
-     - Click "Add"
-     - Credentials : Choose from drop down {unique id}
+   - OpenShift Client Plugin
+      - Cluster Configurations : Click on "Add OpenShift Cluster"
+      - Cluster Name : openshift-cluster
+      - API Server URL : *yourOcpClusterUrl*
+      - Disable TLS Verify : checked
+      - Credentials : Click on "Add"
+      - Kind : "OpenShift Token for OpenShift Client Plugin"
+      - ID : {unique Id}
+      - Click "Add"
+      - Credentials : Choose from drop down {unique id}
 
    Click on **Apply & Save**
 
- - JFrog
-     - Cluster Configurations : Click on “Add JFrog Platform Instance”
-     - Instance Id : localhost-jfrog-server
-     - JFrog Platform URL : { localhost-url } (generally http://localhost:8082)
-     - Default Deployer Credentials:
-     - Username : { JFrog Login Username }
-     - Password : { JFrog Login Password }
+   - JFrog
+      - Cluster Configurations : Click on “Add JFrog Platform Instance”
+      - Instance Id : localhost-jfrog-server
+      - JFrog Platform URL : { localhost-url } (generally http://localhost:8082)
+      - Default Deployer Credentials:
+      - Username : { JFrog Login Username }
+      - Password : { JFrog Login Password }
 
-	Click on **Test Connection** and see if it works, if it does then hit **Apply and Save**
+   Click on **Test Connection** and see if it works, if it does then hit **Apply and Save**
 
 - **Step 10 : Create an OpenShift Pipeline**
   - The pipeline will use parameters to capture git repo, branch, project namespace, openshift cluster name (as configured above earlier) and the Build Configuration.
