@@ -159,29 +159,29 @@ The business validation results are in the last `decision-results` object. `resu
 
 ### Setup
 - **Step 1: Installing Jenkins on your local machine**
- - The latest version of Jenkins can be found [here](https://www.jenkins.io/). Download the Generic Java package (.war) file. Make sure java version 8 or higher is installed. Java version can be checked by using the following command on a terminal on the local machine:
+  - The latest version of Jenkins can be found [here](https://www.jenkins.io/). Download the Generic Java package (.war) file. Make sure java version 8 or higher is installed. Java version can be checked by using the following command on a terminal on the local machine:
  
 		java --version
-   If you do not have JDK installed, the following link can be used
+    If you do not have JDK installed, the following link can be used
    <b>JDK 11</b>: [link](https://www.oracle.com/java/technologies/javase-downloads.html#JDK11)
 - **Step 2: Starting the Jenkins Automation tool**
- - Run the following command to cd into the Downloads folder (or where your jenkins.war file is):
+  - Run the following command to cd into the Downloads folder (or where your jenkins.war file is):
 
 		cd ~/Downloads
 
- - Run the following command to start the Jenkins Application
+  - Run the following command to start the Jenkins Application
 		java -jar jenkins.war
 		
 - **Step 3: Setting up Jenkins**
- - Go to [localhost:8080](http://localhost:8080) to see the homepage of Jenkins, enter the admin password at which point the Jenkins configuration will start. It's a simple one-time admin configuration. Select install suggested plug-ins to get started quickly.
+  - Go to [localhost:8080](http://localhost:8080) to see the homepage of Jenkins, enter the admin password at which point the Jenkins configuration will start. It's a simple one-time admin configuration. Select install suggested plug-ins to get started quickly.
 
 - **Step 4: Installing plugins**
- - Plugins can be installed via **Dashboard**&nbsp;&rarr;&nbsp;**Manage Jenkins**&nbsp;&rarr;&nbsp;**Manage Plugins**
- - Click on "Available" tab and search the following plug-ins
- - To work with OpenShift, following plug-ins are required:
-   - OpenShift Client
-   - OpenShift Login
-   - OpenShift Sync
+  - Plugins can be installed via **Dashboard**&nbsp;&rarr;&nbsp;**Manage Jenkins**&nbsp;&rarr;&nbsp;**Manage Plugins**
+  - Click on "Available" tab and search the following plug-ins
+  - To work with OpenShift, following plug-ins are required:
+    - OpenShift Client
+    - OpenShift Login
+    - OpenShift Sync
 
  - Artifactory Plug-ins:
    - Artfactory
