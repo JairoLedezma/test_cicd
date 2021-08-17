@@ -183,32 +183,32 @@ The business validation results are in the last `decision-results` object. `resu
     - OpenShift Login
     - OpenShift Sync
 
- - Artifactory Plug-ins:
-   - Artfactory
+  - Artifactory Plug-ins:
+    - Artfactory
 
- - To add the functionality of having multiple users with roles and permissions, install:
-   - Role-based Authorization Strategy
+  - To add the functionality of having multiple users with roles and permissions, install:
+    - Role-based Authorization Strategy
 
    Select the above plug-ins and hit **Install without Restart** button.
 - **Step 5 Installing and Setting up JFrog Artifactory Server:**
 
- - Download the OSS (Open Source Solution) version of Artifactory from [here](https://releases.jfrog.io/artifactory/bintray-artifactory/org/artifactory/oss/jfrog-artifactory-oss/[RELEASE]/jfrog-artifactory-oss-[RELEASE]-darwin.tar.gz)
- - Unzip the tar file by double clicking on the downloaded tar.gz file or using the following command:
-`tar -xvf [zip fileName]`
- - After the file is unzipped, open up a terminal and cd into
-`artifactory-oss/app/bin/`
+  - Download the OSS (Open Source Solution) version of Artifactory from [here](https://releases.jfrog.io/artifactory/bintray-artifactory/org/artifactory/oss/jfrog-artifactory-oss/[RELEASE]/jfrog-artifactory-oss-[RELEASE]-darwin.tar.gz)
+  - Unzip the tar file by double clicking on the downloaded tar.gz file or using the following command:
+ `tar -xvf [zip fileName]`
+  - After the file is unzipped, open up a terminal and cd into
+ `artifactory-oss/app/bin/`
   - If the file is unzipped into the downloads folder, use the following command to cd into the folder:
-`cd ~/Downloads/artifactory-oss-7.21.12/app/bin/`
- - Once you are in the bin folder, run the following command to start the Artifactory server
-`./artifactory.sh start`
- - If you get a malware prompt:
-   - Open settings
-   - Select security & privacy settings
-   - In the general tab, click the lock near the bottom left
-   - Note that the “allowed apps” list will update as you run the ./artifactory.sh start command
-   - While the program is running, you will be prompted to move to trash, or close. Click close then look at the “allowed apps” list in your settings.  A new entry will appear each time you hit close.  Click “always allow” then restart the ./artifactory.sh start command.  Repeat this process until the installation is complete.
+ `cd ~/Downloads/artifactory-oss-7.21.12/app/bin/`
+  - Once you are in the bin folder, run the following command to start the Artifactory server
+ `./artifactory.sh start`
+  - If you get a malware prompt:
+    - Open settings
+    - Select security & privacy settings
+    - In the general tab, click the lock near the bottom left
+    - Note that the “allowed apps” list will update as you run the ./artifactory.sh start command
+    - While the program is running, you will be prompted to move to trash, or close. Click close then look at the “allowed apps” list in your settings.  A new entry will appear each time you hit close.  Click “always allow” then restart the ./artifactory.sh start command.  Repeat this process until the installation is complete.
 
- - It should start the artifactory server on the following URL : [http://localhost:8082](http://localhost:8082). Wait for artifactory to start and be ready to serve
+  - It should start the artifactory server on the following URL : [http://localhost:8082](http://localhost:8082). Wait for artifactory to start and be ready to serve
 
 ```
 Default login credentials:
@@ -217,28 +217,28 @@ Default login credentials:
 ```
 
 - **Step 6 Setting up Artifactory server:**
- - Step 1: Set up the admin password (Optional, you can skip if you want to use the default password). Select any easy password that you can remember, for example *Admin123!*
- - Step 2: Set Base URL
-   - Skip
- - Step 3: Configure Proxy Server
-   - Skip
- - Step 4: Create a Repository/ Repositories (if it shows up)
-   - Skip
+  - Step 1: Set up the admin password (Optional, you can skip if you want to use the default password). Select any easy password that you can remember, for example *Admin123!*
+  - Step 2: Set Base URL
+    - Skip
+  - Step 3: Configure Proxy Server
+    - Skip
+  - Step 4: Create a Repository/ Repositories (if it shows up)
+    - Skip
 
 - **Step 7 Creating Maven Repositories on JFrog Artifactory Server**
- - Go to Administration section(Gear icon in the left navigation pane, on the top)
- - Click on Repositories&nbsp;&rarr;&nbsp;Repositories&nbsp;&rarr;&nbsp;Local (Local tab in the main area)<br />
- - Click Add Repositories from top right corner,
-   - Select Local Repository
-   - Select Maven
-   - Enter Repository key as : libs-release-local
-   - Click Save & Finish in the bottom right corner
+  - Go to Administration section(Gear icon in the left navigation pane, on the top)
+  - Click on Repositories&nbsp;&rarr;&nbsp;Repositories&nbsp;&rarr;&nbsp;Local (Local tab in the main area)<br />
+  - Click Add Repositories from top right corner,
+    - Select Local Repository
+    - Select Maven
+    - Enter Repository key as : libs-release-local
+    - Click Save & Finish in the bottom right corner
 
- - Click Add Repositories from top right corner,
-   - Select Local Repository
-   - Select Maven
-   - Enter Repository key as : libs-snapshot-local
-   - Click Save & Finish in the bottom right corner
+  - Click Add Repositories from top right corner,
+    - Select Local Repository
+    - Select Maven
+    - Enter Repository key as : libs-snapshot-local
+    - Click Save & Finish in the bottom right corner
 
    **NOTE: Use these credentials when configuring JFrog server in Jenkins**:
 
@@ -313,60 +313,60 @@ Default login credentials:
 	Click on **Test Connection** and see if it works, if it does then hit **Apply and Save**
 
 - **Step 10 : Create an OpenShift Pipeline**
- - The pipeline will use parameters to capture git repo, branch, project namespace, openshift cluster name (as configured above earlier) and the Build Configuration.
+  - The pipeline will use parameters to capture git repo, branch, project namespace, openshift cluster name (as configured above earlier) and the Build Configuration.
 
- - Open Jenkins&nbsp;&rarr;&nbsp;Dashboard &nbsp;&rarr;&nbsp;New Item
+  - Open Jenkins&nbsp;&rarr;&nbsp;Dashboard &nbsp;&rarr;&nbsp;New Item
 
- - Creating and Configuring the Pipeline
+  - Creating and Configuring the Pipeline
 
-  - Enter an item name : OpenShift Pipeline
-    - Select "Pipeline" & Click "OK"
+   - Enter an item name : OpenShift Pipeline
+     - Select "Pipeline" & Click "OK"
 
-    - Under General : Check / Select "This project is parameterized"
+     - Under General : Check / Select "This project is parameterized"
 
-  - Click on "Add Parameter" & Choose "String Parameter"
-   - Name : GIT_URL
-   - Default-Value : this git repo
+   - Click on "Add Parameter" & Choose "String Parameter"
+    - Name : GIT_URL
+    - Default-Value : this git repo
 
-  - Click on "Add Parameter" & Choose "String Parameter"
-   - Name : BRANCH
-   - Default-Value : master
+   - Click on "Add Parameter" & Choose "String Parameter"
+    - Name : BRANCH
+    - Default-Value : master
 
-  - Click on "Add Parameter" & Choose "String Parameter"
-   - Name : CLUSTER_NAME
-   - Default Value : openshift-cluster
+   - Click on "Add Parameter" & Choose "String Parameter"
+    - Name : CLUSTER_NAME
+    - Default Value : openshift-cluster
 **IMPORTANT - This should match with earlier defined cluster name**
 
-  - Click on "Add Parameter" & Choose "String Parameter"
-   - Name : PROJECT_NAME
-   - Default Value : sample-dmn-demo
+   - Click on "Add Parameter" & Choose "String Parameter"
+    - Name : PROJECT_NAME
+    - Default Value : sample-dmn-demo
 
-  - Click on "Add Parameter" & Choose "String Parameter"
-   - Name : BUILD_CONFIG
-   - Default Value : myappsample-iteration-demo-kieserver
+   - Click on "Add Parameter" & Choose "String Parameter"
+    - Name : BUILD_CONFIG
+    - Default Value : myappsample-iteration-demo-kieserver
 
-  - Click on "Add Parameter" & Choose "String Parameter"
-   - Name : DEPLOYMENT_CONFIG
-   - Default Value : myappsample-iteration-demo-kieserver
+   - Click on "Add Parameter" & Choose "String Parameter"
+    - Name : DEPLOYMENT_CONFIG
+    - Default Value : myappsample-iteration-demo-kieserver
 
- - Under Pipeline Section
-   - Select Pipeline from SCM in the definition section.
-   - Select Git in SCM
-   - Enter this git repo url in the github URL
-   - Credentials : none (for public repositories)
+  - Under Pipeline Section
+    - Select Pipeline from SCM in the definition section.
+    - Select Git in SCM
+    - Enter this git repo url in the github URL
+    - Credentials : none (for public repositories)
 
-   - ScriptPath: Jenkinsfile
-   - Lightweight Checkout : selected
+    - ScriptPath: Jenkinsfile
+    - Lightweight Checkout : selected
 
    Hit **Apply & Save**
 
 Run the pipeline:
 
-- Click on Build with Parameters
- - GIT_URL : https://github.com/rutvik-nvs/sample-dmn-iteration.git
- - BRANCH : master
- - PROJECT_NAME : sample-dmn-demo
- - CLUSTER_NAME : openshift-cluster
- - BUILD_CONFIG : myappsample-iteration-demo-kieserver
+ - Click on Build with Parameters
+  - GIT_URL : https://github.com/rutvik-nvs/sample-dmn-iteration.git
+  - BRANCH : master
+  - PROJECT_NAME : sample-dmn-demo
+  - CLUSTER_NAME : openshift-cluster
+  - BUILD_CONFIG : myappsample-iteration-demo-kieserver
 
 Click on **Build**
