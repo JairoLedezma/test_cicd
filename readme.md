@@ -1,7 +1,7 @@
 **Table of Contents**
 <!--ts-->
-   * [Sample DMN Project Deployment](#Sample DM Project)
-   * [OpenShift CI/CD Pipeline](#Openshift CI/CD Pipeline)
+   * [Sample DMN Project Deployment](#SampleDMProject)
+   * [OpenShift CI/CD Pipeline](#OpenshiftCI/CDPipeline)
 <!--te-->
 
 # Sample DM Project
