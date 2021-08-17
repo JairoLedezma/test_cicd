@@ -1,6 +1,8 @@
 **Table of Contents**
-[Sample DMN Project Deployment](#Sample DM Project)
-[OpenShift CI/CD Pipeline](#Openshift CI/CD Pipeline)
+<!--ts-->
+   * [Sample DMN Project Deployment](#Sample DM Project)
+   * [OpenShift CI/CD Pipeline](#Openshift CI/CD Pipeline)
+<!--te-->
 
 # Sample DM Project
 - This repository contains the source code for a sample DMN Project which implements the iteration over list of objects on each of which business logic validation is performed.
