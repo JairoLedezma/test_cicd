@@ -321,42 +321,41 @@ Default login credentials:
 
    - Enter an item name : OpenShift Pipeline
      - Select "Pipeline" & Click "OK"
-
      - Under General : Check / Select "This project is parameterized"
 
    - Click on "Add Parameter" & Choose "String Parameter"
-    - Name : GIT_URL
-    - Default-Value : this git repo
+     - Name : GIT_URL
+     - Default-Value : this git repo
 
    - Click on "Add Parameter" & Choose "String Parameter"
-    - Name : BRANCH
-    - Default-Value : master
+     - Name : BRANCH
+     - Default-Value : master
 
    - Click on "Add Parameter" & Choose "String Parameter"
-    - Name : CLUSTER_NAME
-    - Default Value : openshift-cluster
+     - Name : CLUSTER_NAME
+     - Default Value : openshift-cluster
 **IMPORTANT - This should match with earlier defined cluster name**
 
    - Click on "Add Parameter" & Choose "String Parameter"
-    - Name : PROJECT_NAME
-    - Default Value : sample-dmn-demo
+     - Name : PROJECT_NAME
+     - Default Value : sample-dmn-demo
 
    - Click on "Add Parameter" & Choose "String Parameter"
-    - Name : BUILD_CONFIG
-    - Default Value : myappsample-iteration-demo-kieserver
+     - Name : BUILD_CONFIG
+     - Default Value : myappsample-iteration-demo-kieserver
 
    - Click on "Add Parameter" & Choose "String Parameter"
-    - Name : DEPLOYMENT_CONFIG
-    - Default Value : myappsample-iteration-demo-kieserver
+     - Name : DEPLOYMENT_CONFIG
+     - Default Value : myappsample-iteration-demo-kieserver
 
   - Under Pipeline Section
-    - Select Pipeline from SCM in the definition section.
-    - Select Git in SCM
-    - Enter this git repo url in the github URL
-    - Credentials : none (for public repositories)
+     - Select Pipeline from SCM in the definition section.
+     - Select Git in SCM
+     - Enter this git repo url in the github URL
+     - Credentials : none (for public repositories)
 
-    - ScriptPath: Jenkinsfile
-    - Lightweight Checkout : selected
+     - ScriptPath: Jenkinsfile
+     - Lightweight Checkout : selected
 
    Hit **Apply & Save**
 
