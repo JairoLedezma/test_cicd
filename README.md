@@ -1,4 +1,4 @@
-#Table of Contents
+# Table of Contents
 <!--ts-->
    * [Sample DMN Project Deployment](#Sample-DMN-Project)
    * [Openshift CI/CD Pipeline](#Openshift-CI/CD-Pipeline)
@@ -160,6 +160,7 @@ The business validation results are in the last `decision-results` object. `resu
 
 
 # Openshift-CI/CD-Pipeline
+
 ### Prerequisites
 - JDK 11
 
