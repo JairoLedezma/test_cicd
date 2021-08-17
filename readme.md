@@ -1,3 +1,6 @@
+**Table of Contents**
+[TOC]
+
 # Sample DMN Project
 - This repository contains the source code for a sample DMN Project which implements the iteration over list of objects on each of which business logic validation is performed.
 - It can be deployed directly to a `Immutable Kie-server-v7.11.0` running on a openshift cluster configured for S2I(Source to Image).
