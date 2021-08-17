@@ -1,10 +1,10 @@
 **Table of Contents**
 <!--ts-->
-   * [Sample DMN Project Deployment](#SampleDMProject)
-   * [OpenShift CI/CD Pipeline](#OpenshiftCI/CDPipeline)
+   * [Sample DMN Project Deployment](#Sample-DMN-Project)
+   * [OpenShift CI/CD Pipeline](#Openshift-CI/CD-Pipeline)
 <!--te-->
 
-# Sample DM Project
+# Sample-DMN-Project
 - This repository contains the source code for a sample DMN Project which implements the iteration over list of objects on each of which business logic validation is performed.
 - It can be deployed directly to a `Immutable Kie-server-v7.11.0` running on a openshift cluster configured for S2I(Source to Image).
 ## Prerequisites
@@ -159,7 +159,7 @@ The business validation results are in the last `decision-results` object. `resu
 
 
 
-# Openshift CI/CD Pipeline
+# Openshift-CI/CD-Pipeline
 ### Prerequisites
 - JDK 11
 
