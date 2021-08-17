@@ -244,11 +244,11 @@ Default login credentials:
 
    Go to **Administration**&nbsp;&rarr;&nbsp;**Identity and Access**&nbsp;&rarr;&nbsp;**Users**
   - Click on “New User” in the top right corner
-   - Username: { username } (example: deployer)
-   - Email: { email } (example: deployer@artifactory.com)
-   - Roles : Administrator Platform - Checked
-   - Password: { password } (example: Password123!)
-   - Click Save in the bottom right corner
+    - Username: { username } (example: deployer)
+    - Email: { email } (example: deployer@artifactory.com)
+    - Roles : Administrator Platform - Checked
+    - Password: { password } (example: Password123!)
+    - Click Save in the bottom right corner
 
 - **Step 8 Configure Jenkins Global Tool Configuration**
   - This step is to configure tools such as java, maven and openshift client (oc) to be used by pipelines. Tools name given under these settings will be called under the pipeline tool section.
@@ -268,7 +268,7 @@ Default login credentials:
 
 	  Click **Apply**
 
-     - JDK Installation
+    - JDK Installation
       - Click on "Add JDK"
       - Name : jdk11
       - Install Automatically : uncheck
