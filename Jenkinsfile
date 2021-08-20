@@ -40,36 +40,33 @@ pipeline {
                 )
             }
         }
-        // creates the template in oCP4 automatically to streamline build
-        stage ('Deploying the template') {
+        stage ('Replace Configurations') {
             steps {
                 script {
                     openshift.withCluster( CLUSTER_NAME ) {
                         openshift.withProject( PROJECT_NAME ){
-                            
-                            
-                            def template = openshift.withProject( PROJECT_NAME ) {
-                             // Find the named template and unmarshal into a Groovy object
-                                openshift.selector('template','rhdm711-prod-immutable-kieserver').object()
-                                }
-                            echo "Template contains ${template.parameters.size()} parameters"
-                            // This model can be specified as the template to process
-                                openshift.create( openshift.process( template,
-                                                                "-p", "APPLICATION_NAME=kie-server",
-                                                                "-p", "CREDENTIALS_SECRET=credentials",
-                                                                "-p", "KIE_SERVER_HTTPS_SECRET=https-keystore",
-                                                                "-p", "KIE_SERVER_CONTAINER_DEPLOYMENT=IterationDemo_1.0.0-SNAPSHOT=com.myspace:IterationDemo:1.0.0-SNAPSHOT",
-                                                                "-p", "SOURCE_REPOSITORY_URL=https://github.com/JairoLedezma/sample-dmn-iteration.git",
-                                                                "-p", "SOURCE_REPOSITORY_REF=master",
-                                                                "-p", "CONTEXT_DIR=",
-                                                                "-p", "KIE_SERVER_CPU_LIMIT=2",
-                                                                "-p", "KIE_SERVER_CPU_REQUEST=300m"))
+                            def processedTemplate = openshift.process( "-f", "./templates/template-replace.yaml", "--param-file=./templates/template-replace.env")
+                            def createResources = openshift.replace( processedTemplate )
+                            createResources.logs(-f)
                         }
                     }
-                }    
+                }
             }
         }
-       
+        stage ('Replace Configurations') {
+            steps {
+                script {
+                    openshift.withCluster( CLUSTER_NAME ) {
+                        openshift.withProject( PROJECT_NAME ){
+                            def processedTemplate = openshift.process( "-f", "./templates/template-replace.yaml", "--param-file=./templates/template-replace.env")
+                            def createResources = openshift.replace( processedTemplate )
+                        }
+                    }
+                }
+            }
+        }
+        
+    
          
         stage ('Uploading Artifacts to Artifactory') {
             steps {
