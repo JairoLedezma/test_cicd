@@ -40,7 +40,7 @@ pipeline {
                 )
             }
         }
-        stage ('Running Unit Tests') {
+        stage ('Trying to create new project from template') {
             steps {
                 script {
                     openshift.withCluster( CLUSTER_NAME ) {
