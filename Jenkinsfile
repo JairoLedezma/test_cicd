@@ -40,19 +40,7 @@ pipeline {
                 )
             }
         }
-        stage ('Replace Configurations') {
-            steps {
-                script {
-                    openshift.withCluster( CLUSTER_NAME ) {
-                        openshift.withProject( PROJECT_NAME ){
-                            def processedTemplate = openshift.process( "-f", "./templates/template-replace.yaml", "--param-file=./templates/template-replace.env")
-                            def createResources = openshift.replace( processedTemplate )
-                            createResources.logs(-f)
-                        }
-                    }
-                }
-            }
-        }
+        
         stage ('Replace Configurations') {
             steps {
                 script {
