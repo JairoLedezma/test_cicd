@@ -40,6 +40,25 @@ pipeline {
                 )
             }
         }
+        stage ('Running Unit Tests') {
+            steps {
+                script {
+                    openshift.withCluster( CLUSTER_NAME ) {
+                        openshift.withProject( PROJECT_NAME ){
+                            
+                            // This model can be specified as the template to process
+                            openshift.create( openshift.process( "https://github.com/rutvik-nvs/sample-dmn-iteration/blob/master/templates/template-create.yaml", 
+                                                                "--param-file", 
+                                                                "https://github.com/rutvik-nvs/sample-dmn-iteration/blob/master/templates/template-create.env") )
+                        }
+                        }
+                    }
+                } 
+                        
+            }
+        }
+       
+         
         stage ('Uploading Artifacts to Artifactory') {
             steps {
                 rtPublishBuildInfo (
