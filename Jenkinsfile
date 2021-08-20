@@ -47,6 +47,24 @@ pipeline {
                 )
             }
         }
+        stage ('Create a template') {
+            steps {
+                openshift.withCluster( CLUSTER_NAME ) {
+                        openshift.withProject( PROJECT_NAME ){
+                             
+                            // This model can be specified as the template to process
+                            openshift.create( openshift.process( 'https://github.com/rutvik-nvs/sample-dmn-iteration/blob/master/templates/template-create.yaml, 
+                                                                "--param-file", 
+                                                                "https://github.com/rutvik-nvs/sample-dmn-iteration/blob/master/templates/template-create.env") )
+                            
+                            // Or we can add env manually
+                            // openshift.create( openshift.process( template, "--param-file", "template.env") )
+                            // -p POSTGRESQL_USER=bob 
+                        }
+                    }
+            }
+        }
+        
         stage ('Building and Pushing Image to Quay') {
             steps {
                 script {
