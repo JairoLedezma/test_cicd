@@ -52,6 +52,7 @@ pipeline {
                              // Find the named template and unmarshal into a Groovy object
                                 openshift.selector('template','rhdm711-prod-immutable-kieserver').object()
                                 }
+                            echo "Template contains ${template.parameters.size()} parameters"
                             // This model can be specified as the template to process
                                 openshift.create( openshift.process( template,
                                                                 "-p", "APPLICATION_NAME=kie=server",
