@@ -342,29 +342,6 @@ parameters:
     name: AUTH_ROLE_MAPPER_REPLACE_ROLE
     required: false
 objects:
-  - kind: Service
-    apiVersion: v1
-    spec:
-      ports:
-        - name: http
-          port: 8080
-          targetPort: 8080
-        - name: https
-          port: 8443
-          targetPort: 8443
-      selector:
-        deploymentConfig: "${APPLICATION_NAME}-kieserver"
-      sessionAffinity: ClientIP
-      sessionAffinityConfig:
-        clientIP:
-          timeoutSeconds: 3600
-    metadata:
-      name: "${APPLICATION_NAME}-kieserver"
-      labels:
-        application: "${APPLICATION_NAME}"
-        service: "${APPLICATION_NAME}-kieserver"
-      annotations:
-        description: All the KIE Server web server's ports.
   - kind: Route
     apiVersion: v1
     id: "insecure-${APPLICATION_NAME}-kieserver-http"
