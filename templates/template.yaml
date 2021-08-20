@@ -350,6 +350,14 @@ objects:
     data:
       KIE_ADMIN_USER:
       KIE_ADMIN_PWD:
+  - kind: Secret
+    apiVersion: v1
+    metadata:
+      name: ${KIE_SERVER_HTTPS_SECRET}
+    data:
+      keystore.jks: >-
+
+    type: Opaque
   - kind: ServiceAccount
     apiVersion: v1
     metadata:
