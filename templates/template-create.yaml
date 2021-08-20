@@ -346,7 +346,6 @@ objects:
     apiVersion: v1
     metadata:
       name: ${CREDENTIALS_SECRET}
-      namespace: testing-dc
     data:
       KIE_ADMIN_USER:
       KIE_ADMIN_PWD:
