@@ -55,7 +55,7 @@ pipeline {
                             echo "Template contains ${template.parameters.size()} parameters"
                             // This model can be specified as the template to process
                                 openshift.create( openshift.process( template,
-                                                                "-p", "APPLICATION_NAME=kie=server",
+                                                                "-p", "APPLICATION_NAME=kie_server",
                                                                 "-p", "CREDENTIALS_SECRET=credentials",
                                                                 "-p", "KIE_SERVER_HTTPS_SECRET=https-keystore",
                                                                 "-p", "KIE_SERVER_CONTAINER_DEPLOYMENT=IterationDemo_1.0.0-SNAPSHOT=com.myspace:IterationDemo:1.0.0-SNAPSHOT",
