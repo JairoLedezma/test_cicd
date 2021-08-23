@@ -8,7 +8,7 @@
 - This repository contains the source code for a sample DMN Project which implements the iteration over list of objects on each of which business logic validation is performed.
 - It can be deployed directly to a `Immutable Kie-server-v7.11.0` running on a openshift cluster configured for S2I(Source to Image).
 - This guide has the template of the kie server in the template folder, aswell as the environment variables that are needed to run it. 
-- The jenkins pipeline all the work when it comes to creating image streams, build configs, deployment configs and secrets. NOTE: the secrets will have to be populated by the user after deployment of application
+- The jenkins pipeline does all the work when it comes to creating image streams, build configs, deployment configs and secrets. NOTE: the secrets will have to be populated by the user after deployment of application in order for the kieserver to function properly.
 ## Prerequisites
 - OpenShift v4.8 Cluster Web Console access with cluster-admin rights<br /><br />
 ## Installation
@@ -16,6 +16,7 @@
 
  ### Step 1. Setting up the OpenShift Cluster
  - Login to your OpenShift Cluster Web Console or Terminal and create a new project
+ 	- Due to the limitations of the openshift plugin on jenkins, we have to do this ourselves.
 
 # Openshift-CI/CD-Pipeline
 
