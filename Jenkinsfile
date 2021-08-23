@@ -50,7 +50,7 @@ pipeline {
                             
                             // if the new_project box is checked then a fresh install of the necessary files is ran
                             // otherwise, you could change the files in template-replace and then run it again to update
-                            if(${NEW_PROJECT}){
+                            if( NEW_PROJECT ){
                                  try {
                                     processedTemplate = openshift.process( "-f", "./templates/template-create.yaml", "--param-file=./templates/template-create.env")
                                     def createResources = openshift.create( processedTemplate )
