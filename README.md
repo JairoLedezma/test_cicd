@@ -278,7 +278,7 @@ Run the following command to generate a certificate signing request using the pu
 ```
 keytool -certreq -keyalg RSA -alias jboss -keystore keystore.jks -file certreq.csr
 ```
-Next we must create an SSL certificate for HTTP access to KIE Server, Business central, smart router, https-keystore and provide it to your OpenShift environment as a secret. Run the following commnads to accomplish this. Ensure that your are on the correct project.
+Next we must create an SSL certificate for HTTP access to KIE Server, Business central, smart router, https-keystore and provide it to your OpenShift environment as a secret. Run the following commnads to accomplish this. Ensure that your are on the correct project as these secrets will be only for this project.
 ```
 oc create secret generic kieserver-app-secret --from-file=keystore.jks
 ```
