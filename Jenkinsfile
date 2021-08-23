@@ -44,7 +44,7 @@ pipeline {
             steps {
                 script {
                     openshift.withCluster( CLUSTER_NAME ) {
-                        if( NEW_PROJECT ){
+                        if( NEW_PROJECT==true){
                             def projectCommand = "oc new-project "+PROJECT_NAME+" "+TOKEN
                             sh projectCommand
                         }
