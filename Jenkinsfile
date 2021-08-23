@@ -47,8 +47,6 @@ pipeline {
                         if( NEW_PROJECT ){
                             def projectCommand = "oc new-project "+PROJECT_NAME+" "+TOKEN
                             sh projectCommand
-                        }else{
-                            continue 
                         }
                     }
                 }  
