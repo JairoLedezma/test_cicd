@@ -10,7 +10,7 @@
 - This guide has the template of the kie server in the template folder, aswell as the environment variables that are needed to run it. 
 - The jenkins pipeline does all the work when it comes to creating image streams, build configs, deployment configs and secrets. NOTE: the secrets will have to be populated by the user after deployment of application in order for the kieserver to function properly.
 ## Prerequisites
-- OpenShift v4.8 Cluster Web Console access with cluster-admin rights<br /><br />
+- OpenShift v4.7.11 Cluster Web Console access with cluster-admin rights<br /><br />
 ## Installation
 
 
