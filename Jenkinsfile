@@ -41,19 +41,27 @@ pipeline {
             }
         }
         
-        stage ('Replace Configurations') {
+       stage ('Create & Replace Configurations') {
             steps {
                 script {
                     openshift.withCluster( CLUSTER_NAME ) {
                         openshift.withProject( PROJECT_NAME ){
-                            def processedTemplate = openshift.process( "-f", "./templates/template-replace.yaml", "--param-file=./templates/template-replace.env")
-                            def createResources = openshift.replace( processedTemplate )
+                            def processedTemplate
+                            try {
+                                processedTemplate = openshift.process( "-f", "./templates/template-create.yaml", "--param-file=./templates/template-create.env")
+                                def createResources = openshift.create( processedTemplate )
+                                createResources.logs('-f')
+                                processedTemplate = openshift.process( "-f", "./templates/template-replace.yaml", "--param-file=./templates/template-replace.env")
+                                def replaceResources = openshift.replace( processedTemplate )
+                                replaceResources.logs('-f')
+                            } catch (err) {
+                                echo err.getMessage()
+                            }
                         }
                     }
                 }
             }
         }
-        
     
          
         stage ('Uploading Artifacts to Artifactory') {
