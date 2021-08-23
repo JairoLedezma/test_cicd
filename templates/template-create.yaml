@@ -347,8 +347,8 @@ objects:
     metadata:
       name: ${CREDENTIALS_SECRET}
     data:
-      KIE_ADMIN_USER:
-      KIE_ADMIN_PWD:
+      KIE_ADMIN_USER: kie-redhat1!
+      KIE_ADMIN_PWD: kie-admin
   - kind: Secret
     apiVersion: v1
     metadata:
