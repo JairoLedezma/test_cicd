@@ -46,7 +46,7 @@ pipeline {
                     openshift.withCluster( CLUSTER_NAME ) {
                         if( NEW_PROJECT ){
                             def projectCommand = "oc new-project "+PROJECT_NAME+" --token=sha256~Qz0dR0GYJ_Vwb98v90KESNvS49nCTsFQE2QXsrZxbl8 --server=https://api.pfocp4.nvsconsulting.io:6443"
-                            sh "projectCommand"
+                            sh projectCommand
                         }else{
                             continue 
                         }
